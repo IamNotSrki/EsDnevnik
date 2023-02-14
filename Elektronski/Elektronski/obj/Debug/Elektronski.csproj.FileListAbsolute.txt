@@ -1,0 +1,11 @@
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\bin\Debug\Elektronski.exe.config
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\bin\Debug\Elektronski.exe
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\bin\Debug\Elektronski.pdb
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.csprojResolveAssemblyReference.cache
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form1.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Properties.Resources.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.csproj.GenerateResource.Cache
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.exe
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.pdb
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form2.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form3.resources
