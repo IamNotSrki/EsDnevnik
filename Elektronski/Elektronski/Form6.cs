@@ -11,56 +11,44 @@ using System.Data.SqlClient;
 
 namespace Elektronski
 {
-    public partial class Form3 : Form
+    public partial class Form6 : Form
     {
         int broj;
         SqlConnection veza;
         DataTable dtRaspodele, dtRaspodeleJoin;
 
-        public Form3()
+        public Form6()
         {
             InitializeComponent();
         }
 
-        private void nastavnikPopulate()
+        private void ucenikPopulate()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT id, ime+' '+prezime AS naziv FROM osoba WHERE uloga = 2", veza);
-            DataTable dtNastavnik = new DataTable();
-            adapter.Fill(dtNastavnik);
-            cbImePrezime.DataSource = dtNastavnik;
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT id, ime+' '+prezime AS 'Naziv ucenika' FROM osoba WHERE uloga = 1", veza);
+            DataTable dtUcenik = new DataTable();
+            adapter.Fill(dtUcenik);
+            cbImePrezime.DataSource = dtUcenik;
             cbImePrezime.ValueMember = "id";
             cbImePrezime.DisplayMember = "naziv";
         }
 
-        private void godinaPopulate()
+        private void odeljenjePopulate()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM skolska_godina", veza);
-            DataTable dtGodina = new DataTable();
-            adapter.Fill(dtGodina);
-            cbSkolskaGodina.DataSource = dtGodina;
-            cbSkolskaGodina.ValueMember = "id";
-            cbSkolskaGodina.DisplayMember = "naziv";
-        }
-
-        private void smerPopulate()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT id, naziv FROM smer", veza);
-            DataTable dtPredmet = new DataTable();
-            adapter.Fill(dtPredmet);
-            cbSmer.DataSource = dtPredmet;
-            cbSmer.ValueMember = "id";
-            cbSmer.DisplayMember = "naziv";
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT id, razred + indeks AS Odeljenje FROM odeljenje", veza);
+            DataTable dtOdeljenje = new DataTable();
+            adapter.Fill(dtOdeljenje);
+            cbOdeljenje.DataSource = dtOdeljenje;
+            cbOdeljenje.ValueMember = "id";
+            cbOdeljenje.DisplayMember = "naziv";
         }
 
         private void gridPopulate()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM odeljenje ORDER BY id", veza);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM upisnica ORDER BY id", veza);
             dtRaspodele = new DataTable();
             adapter.Fill(dtRaspodele);
 
-            string tmp1 = "SELECT odeljenje.id, odeljenje.razred, odeljenje.indeks, smer.naziv AS 'Naziv smera', osoba.ime + ' ' + osoba.prezime AS 'Razredni staresina', Skolska_godina.naziv AS 'Skolska godina' ";
-            string tmp2 = "FROM Odeljenje JOIN smer ON Odeljenje.smer_id = smer.id JOIN Osoba ON Odeljenje.razredni_id = osoba.id JOIN Skolska_godina ON Odeljenje.godina_id = Skolska_godina.id WHERE osoba.uloga = 2";
-            string tmp = tmp1 + tmp2;
+            string tmp = "SELECT upisnica.id, osoba.ime + ' ' + osoba.prezime AS 'Nastavnik', odeljenje.razred + odeljenje.indeks AS 'Odeljenje' FROM upisnica JOIN osoba ON Upisnica.osoba_id = osoba.id JOIN Odeljenje ON Upisnica.odeljenje_id = odeljenje_id WHERE osoba.uloga = 1";
             adapter = new SqlDataAdapter(tmp, veza);
             dtRaspodeleJoin = new DataTable();
             adapter.Fill(dtRaspodeleJoin);
@@ -76,9 +64,8 @@ namespace Elektronski
             if (dataGridView1.CurrentRow != null)
             {
                 broj = dataGridView1.CurrentRow.Index;
-                cbSmer.SelectedValue = dtRaspodele.Rows[broj]["smer_id"].ToString();
                 cbImePrezime.SelectedValue = dtRaspodele.Rows[broj]["nastavnik_id"].ToString();
-                cbSkolskaGodina.SelectedValue = dtRaspodele.Rows[broj]["godina_id"].ToString();
+                cbOdeljenje.SelectedValue = dtRaspodele.Rows[broj]["odeljenje_id"].ToString();
             }
         }
 
@@ -87,7 +74,7 @@ namespace Elektronski
 
             try
             {
-                string naredba = "DELETE FROM odeljenje WHERE id = " + dtRaspodele.Rows[broj]["id"].ToString();
+                string naredba = "DELETE FROM upisnica WHERE id = " + dtRaspodele.Rows[broj]["id"].ToString();
                 SqlCommand komanda = new SqlCommand(naredba, veza);
                 veza.Open();
                 komanda.ExecuteNonQuery();
@@ -106,13 +93,9 @@ namespace Elektronski
         {
             try
             {
-                string naredba = "INSERT INTO odeljenje (razred, indeks, smer_id, razredni_id, odeljenje_id) VALUES ('";
-                naredba = naredba + tbRazred.Text.ToString() + "',";
-                naredba = naredba + tbIndeks.Text.ToString() + "',";
-                naredba = naredba + cbSmer.SelectedValue.ToString() + "')";
+                string naredba = "INSERT INTO upisnica (osoba_id, odeljenje_id) VALUES ('";
                 naredba = naredba + cbImePrezime.SelectedValue.ToString() + "',";
-                naredba = naredba + cbSkolskaGodina.SelectedValue.ToString() + "',";
-
+                naredba = naredba + cbOdeljenje.SelectedValue.ToString() + "')";
 
                 SqlCommand komanda = new SqlCommand(naredba, veza);
                 veza.Open();
@@ -131,11 +114,8 @@ namespace Elektronski
         {
             try
             {
-                string naredba = "UPDATE odeljenje SET razred='" + tbRazred.Text;
-                naredba = naredba + "', indeks='" + tbIndeks.Text;
-                naredba = naredba + "', smer_id='" + cbSmer.SelectedValue.ToString();
-                naredba = naredba + "', razredni_id='" + cbImePrezime.SelectedValue.ToString();
-                naredba = naredba + "', godina_id='" + cbSkolskaGodina.SelectedValue.ToString() + "'WHERE id='";
+                string naredba = "UPDATE upisnica SET osoba_id='" + cbImePrezime.SelectedValue.ToString();
+                naredba = naredba + "', odeljenje_id='" + cbOdeljenje.SelectedValue.ToString() + "'WHERE id='";
                 naredba = naredba + dtRaspodele.Rows[broj]["id"].ToString() + "'";
                 SqlCommand komanda = new SqlCommand(naredba, veza);
                 veza.Open();
@@ -150,14 +130,14 @@ namespace Elektronski
             }
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e)
         {
             string CS = "Data Source = INF008\\SQLEXPRESS; Initial Catalog = esdnevnik; Integrated Security = True";
             veza = new SqlConnection(CS);
-            nastavnikPopulate();
-            godinaPopulate();
-            smerPopulate();
+            ucenikPopulate();
+            odeljenjePopulate();
             gridPopulate();
         }
+        
     }
 }

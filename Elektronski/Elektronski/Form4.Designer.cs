@@ -37,16 +37,16 @@ namespace Elektronski
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(196, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(119, 44);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(561, 385);
+            this.dataGridView1.Size = new System.Drawing.Size(561, 278);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(449, 456);
+            this.button1.Location = new System.Drawing.Point(357, 373);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 1;
             this.button1.Text = "Uradi";
             this.button1.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@ namespace Elektronski
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 559);
+            this.ClientSize = new System.Drawing.Size(807, 502);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form4";

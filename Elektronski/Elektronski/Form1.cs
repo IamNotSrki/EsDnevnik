@@ -25,8 +25,7 @@ namespace Elektronski
 
         private void pregledToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 odeljenja = new Form3();
-            odeljenja.Show();
+     
         }
 
         private void skolskaGodinaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +47,30 @@ namespace Elektronski
             Form4 smerovi = new Form4("Smer");
             smerovi.Text = "Smerovi";
             smerovi.Show();
+        }
+
+        private void oceneBtn_Click(object sender, EventArgs e)
+        {
+            Form5 ocene = new Form5();
+            ocene.Show();
+        }
+
+        private void odeljenjaBtn_Click(object sender, EventArgs e)
+        {
+            Form3 odeljenja = new Form3();
+            odeljenja.Show();
+        }
+
+        private void upisniceBtn_Click(object sender, EventArgs e)
+        {
+            Form6 upisnice = new Form6();
+            upisnice.Show();
+        }
+
+        private void raspodeleBtn_Click(object sender, EventArgs e)
+        {
+            Form7 raspodele = new Form7();
+            raspodele.Show();
         }
     }
 }

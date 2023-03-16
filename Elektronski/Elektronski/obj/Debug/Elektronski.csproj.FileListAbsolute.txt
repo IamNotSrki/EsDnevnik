@@ -8,5 +8,8 @@ D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.exe
 D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.pdb
 D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form2.resources
 D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form3.resources
-D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.csproj.AssemblyReference.cache
-D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.csproj.CoreCompileInputs.cache
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.csprojResolveAssemblyReference.cache
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form4.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form5.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form6.resources
+D:\Ostalo\backup\EsDnevnik\Elektronski\Elektronski\obj\Debug\Elektronski.Form7.resources
